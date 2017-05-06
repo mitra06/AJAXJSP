@@ -29,9 +29,18 @@ public class AjaxController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/plain");
-		String fullname=request.getParameter("fullname");
+		String action=request.getParameter("action");
 		PrintWriter out=response.getWriter();
+		if(action.equals("demo1")){
+		String fullname=request.getParameter("fullname");
 		out.println("Hello " + fullname);
+		}else if(action.equals("demo2")){
+			int number1=Integer.parseInt(request.getParameter("number1"));
+			int number2=Integer.parseInt(request.getParameter("number2"));
+			out.println(number1+number2);
+		}
+		
+		
 	}
 
 	/**
